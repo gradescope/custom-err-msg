@@ -6,9 +6,9 @@ module ActiveModel
       attr_name = @base.class.human_attribute_name(attribute, :default => attr_name)
       options = { :default => "%{attribute} %{message}", :attribute => attr_name }
       if message =~ /^\^/
-        I18n.t(:"errors.format.full_message", options.merge(:message => m[1..-1], :default => "%{message}"))
+        I18n.t(:"errors.format.full_message", options.merge(:message => message[1..-1], :default => "%{message}"))
       else
-        I18n.t(:"errors.format", options.merge(:message => m))
+        I18n.t(:"errors.format", options.merge(:message => message))
       end
     end
   end
